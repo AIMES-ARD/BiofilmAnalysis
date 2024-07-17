@@ -10,7 +10,7 @@ output_xlsx = "SH1000 test.xlsx"
 czi_files = [f for f in os.listdir(folder) if f.endswith('.czi')]
 
 
-# Alternatively, list specific files (incl. path):
+# Alternatively, list specific files:
 # czi_files = [
 #     "SH1000 Ebba680+ R1 airyscan.czi",
 #     "SH1000 Ebba680+ R2 airyscan.czi",
@@ -41,6 +41,6 @@ with pd.ExcelWriter(output_xlsx) as writer:
         
         df_out = pd.DataFrame(data)
         sheet_name = os.path.splitext(czi_file)[0]
-        df_out.to_excel(writer, sheet_name = sheet_name)
+        df_out.to_excel(writer, sheet_name = sheet_name) 
 
 
