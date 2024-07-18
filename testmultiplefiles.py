@@ -6,11 +6,11 @@ import os
 folder = "./DATA/SH1000 test"
 output_xlsx = "SH1000 test.xlsx"
 
-# Find all czi files in the folder:
+# Find all czi files in the specified folder:
 czi_files = [f for f in os.listdir(folder) if f.endswith('.czi')]
 
 
-# Alternatively, list specific files:
+# Alternatively, find all specific files manually listed:
 # czi_files = [
 #     "SH1000 Ebba680+ R1 airyscan.czi",
 #     "SH1000 Ebba680+ R2 airyscan.czi",
