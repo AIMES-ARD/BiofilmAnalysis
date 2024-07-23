@@ -3,8 +3,8 @@ import pandas as pd
 from aicsimageio import AICSImage
 import os
 
-folder = "./DATA/SH1000 test"
-output_xlsx = "SH1000 test.xlsx"
+folder = "./DATA/SH1002"
+output_xlsx = "SH1002 intensities.xlsx"
 
 # Find all czi files in the specified folder:
 czi_files = [f for f in os.listdir(folder) if f.endswith('.czi')]
@@ -19,6 +19,8 @@ czi_files = [f for f in os.listdir(folder) if f.endswith('.czi')]
 
 
 # print(f"Found {len(czi_files)} .czi files.")
+
+czi_files.sort()
 
 with pd.ExcelWriter(output_xlsx) as writer:
     for czi_file in czi_files:
@@ -41,6 +43,4 @@ with pd.ExcelWriter(output_xlsx) as writer:
         
         df_out = pd.DataFrame(data)
         sheet_name = os.path.splitext(czi_file)[0]
-        df_out.to_excel(writer, sheet_name = sheet_name) 
-
-
+        df_out.to_excel(writer, sheet_name 
