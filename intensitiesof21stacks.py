@@ -39,7 +39,7 @@ with pd.ExcelWriter(output_xlsx) as writer:
 
         max_intensity_index = np.argmax(intensityperslice_red)
 
-        # Calculate the range of indices
+    
         start_index = max(0, max_intensity_index - num_stacks)
         end_index = min(len(intensityperslice_red), max_intensity_index + num_stacks + 1)
 
@@ -62,5 +62,3 @@ with pd.ExcelWriter(output_xlsx) as writer:
         df_out = pd.DataFrame(data)
         sheet_name = os.path.splitext(czi_file)[0]
         df_out.to_excel(writer, sheet_name=sheet_name)
-
-print(f"Results saved to {output_xlsx}.")
