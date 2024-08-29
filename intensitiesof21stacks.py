@@ -3,14 +3,14 @@ import pandas as pd
 from aicsimageio import AICSImage
 import os
 
-folder = "./DATA/SH1002-pSGFPS1"
-output_xlsx = "Normalized SH1002 21 intensities.xlsx"
+folder = "./DATA/SH1002, Ebba680+"
+output_xlsx = "Normalized SH1002 21 intensities 240808.xlsx"
 
 # Number of stacks before and after the maximum intensity
 num_stacks = 10
 
 # Find all czi files in the specified folder:
-czi_files = [f for f in os.listdir(folder) if f.endswith('.czi')]
+czi_files = [f for f in os.listdir(folder) if f.endswith('airy.czi')]
 
 # Alternatively, find all specific files manually listed:
 # czi_files = [
@@ -19,6 +19,7 @@ czi_files = [f for f in os.listdir(folder) if f.endswith('.czi')]
 #     # etc
 # ]
 
+print(f"Found {len(czi_files)} .czi files.")
 czi_files.sort()
 
 with pd.ExcelWriter(output_xlsx) as writer:
